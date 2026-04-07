@@ -1,0 +1,10 @@
+# Ignore all python and backend files so Vercel doesn't trigger the Python (FastAPI) builder
+*.py
+requirements.txt
+backend/
+agents/
+ontology/
+security/
+shared/
+venv/
+.venv/
