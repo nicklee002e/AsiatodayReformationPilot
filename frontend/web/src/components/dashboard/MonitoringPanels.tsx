@@ -58,7 +58,7 @@ export default function MonitoringPanels() {
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
       
       {/* Column 1: DART Detection */}
-      <div className="bg-slate-800/40 backdrop-blur border border-slate-700/50 rounded-lg p-4 flex flex-col h-full">
+      <div className="bg-slate-800/40 backdrop-blur border border-slate-700/50 rounded-lg p-4 flex flex-col h-[750px]">
         <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-700/50">
           <div className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-widest">
             <AlertTriangle className="w-4 h-4 mr-2 text-red-500 animate-pulse" />
@@ -67,7 +67,7 @@ export default function MonitoringPanels() {
           <span className="text-xs text-red-400 bg-red-500/10 px-2 py-0.5 rounded font-semibold">2 events</span>
         </div>
         
-        <div className="flex flex-col gap-2 flex-grow">
+        <div className="flex flex-col gap-2 flex-grow overflow-y-auto min-h-0 pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-700/50 hover:[&::-webkit-scrollbar-thumb]:bg-indigo-500/50 [&::-webkit-scrollbar-thumb]:rounded-full transition-colors">
           {dartEvents.map((alert, idx) => (
             <Link href={`/news/${alert.task_id}`} key={alert.task_id || idx} className="block transition-transform hover:-translate-y-0.5">
               <div className="bg-slate-900 border border-slate-800 rounded p-3 text-sm flex flex-col transition-all duration-300 hover:border-indigo-500/50 hover:shadow-[0_0_15px_-3px_rgba(99,102,241,0.2)]">
@@ -103,7 +103,7 @@ export default function MonitoringPanels() {
       </div>
 
       {/* Column 2: Tracking */}
-      <div className="bg-slate-800/40 backdrop-blur border border-slate-700/50 rounded-lg p-4 flex flex-col h-full">
+      <div className="bg-slate-800/40 backdrop-blur border border-slate-700/50 rounded-lg p-4 flex flex-col h-[750px]">
         <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-700/50">
           <div className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-widest">
             <Zap className="w-4 h-4 mr-2 text-orange-500" />
@@ -112,7 +112,7 @@ export default function MonitoringPanels() {
           <span className="text-xs text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded font-semibold">Priority 72 alarms</span>
         </div>
         
-        <div className="flex flex-col gap-2 flex-grow">
+        <div className="flex flex-col gap-2 flex-grow overflow-y-auto min-h-0 pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-700/50 hover:[&::-webkit-scrollbar-thumb]:bg-orange-500/50 [&::-webkit-scrollbar-thumb]:rounded-full transition-colors">
           {DUMMY_TRACKING_LIST.map(alert => (
             <div key={alert.id} className="bg-slate-900 border border-slate-800 rounded p-2 text-xs flex justify-between items-center group hover:bg-slate-800/80 transition-colors">
                <div className="flex items-center gap-3">
@@ -127,7 +127,7 @@ export default function MonitoringPanels() {
       </div>
 
       {/* Column 3: We Called It */}
-      <div className="bg-slate-800/40 backdrop-blur border border-slate-700/50 rounded-lg p-4 flex flex-col h-full">
+      <div className="bg-slate-800/40 backdrop-blur border border-slate-700/50 rounded-lg p-4 flex flex-col h-[750px]">
         <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-700/50">
           <div className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-widest">
             <CheckCircle2 className="w-4 h-4 mr-2 text-pink-500" />
@@ -141,7 +141,7 @@ export default function MonitoringPanels() {
            <span className="text-xs text-slate-400 mt-1">Avg win rate on ST/Default warnings</span>
         </div>
 
-        <div className="flex flex-col gap-2 flex-grow">
+        <div className="flex flex-col gap-2 flex-grow overflow-y-auto min-h-0 pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-700/50 hover:[&::-webkit-scrollbar-thumb]:bg-emerald-500/50 [&::-webkit-scrollbar-thumb]:rounded-full transition-colors">
           {DUMMY_WE_CALLED_IT.map(alert => (
             <div key={alert.id} className="flex justify-between items-center text-xs border-b border-slate-800 pb-2 last:border-0 hover:bg-slate-800/30 p-1 rounded transition-colors">
                <div className="flex items-center gap-2">
