@@ -18,6 +18,18 @@ app.add_middleware(
 EVENT_STORE_LIMIT = 100
 event_store = []
 
+import os
+import json
+if os.path.exists("latest_events.json"):
+    try:
+        with open("latest_events.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if "events" in data:
+                event_store.extend(data["events"])
+                print(f"Loaded {len(data['events'])} events from latest_events.json")
+    except Exception as e:
+        print(f"Failed to load latest_events.json: {e}")
+
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "Manager Hub"}
