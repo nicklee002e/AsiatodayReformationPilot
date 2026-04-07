@@ -82,7 +82,7 @@ export const DUMMY_CRYPTO = [
 
 // 1. 백엔드 규약과 정확히 일치하는 TypeScript 인터페이스 정의
 export interface PipelineContext {
-  ontology_result?: Record<string, unknown> | null;
+  ontology_result?: any;
   article_draft?: string | null;
   factcheck_passed?: boolean | null;
   viz_chart_url?: string | null;
