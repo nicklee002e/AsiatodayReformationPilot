@@ -106,4 +106,10 @@ async def new_dart_event(payload: EventPayload):
     if len(event_store) > EVENT_STORE_LIMIT:
         event_store.pop(0)
 
+    try:
+        with open("latest_events.json", "w", encoding="utf-8") as f:
+            json.dump({"events": event_store}, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Failed to dump to latest_events.json: {e}")
+
     return payload
